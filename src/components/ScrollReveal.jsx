@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export default function ScrollReveal({ children, className = "" }) {
+export default function ScrollReveal({ children, className = "", id, as: Tag = "section" }) {
     const ref = useRef(null);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function ScrollReveal({ children, className = "" }) {
                     }
                 });
             },
-            { rootMargin: "0px 0px -80px 0px", threshold: 0.15 }
+            { rootMargin: "0px 0px -80px 0px", threshold: 0.1 }
         );
 
         observer.observe(el);
@@ -26,8 +26,8 @@ export default function ScrollReveal({ children, className = "" }) {
     }, []);
 
     return (
-        <div ref={ref} className={`section ${className}`}>
+        <Tag ref={ref} className={`section ${className}`} id={id}>
             {children}
-        </div>
+        </Tag>
     );
 }

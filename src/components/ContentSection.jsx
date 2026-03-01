@@ -16,32 +16,30 @@ export default function ContentSection({
     priority = false,
 }) {
     return (
-        <ScrollReveal>
-            <section id={id}>
-                <div className={`section__split${reverse ? " section__split--reverse" : ""}`}>
-                    <div className="section__image" id={`${id}-image`}>
-                        <Image
-                            src={imageSrc}
-                            alt={imageAlt}
-                            width={720}
-                            height={520}
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                            priority={priority}
-                        />
-                    </div>
-                    <div className={`section__content ${bgClass}`} id={`${id}-content`}>
-                        <h2 className={`section__title${lightTitle ? " section__title--light" : ""}`}>
-                            {title}
-                        </h2>
-                        <p className={`section__desc${lightDesc ? " section__desc--light" : ""}`}>
-                            {description}
-                        </p>
-                        <a href="#" className={ctaClass} id={`${id}-cta`}>
-                            {ctaText}
-                        </a>
-                    </div>
+        <ScrollReveal id={id}>
+            <div className={`section__split${reverse ? " section__split--reverse" : ""}`}>
+                <div className="section__image" id={`${id}-image`}>
+                    <Image
+                        src={imageSrc}
+                        alt={imageAlt}
+                        width={720}
+                        height={520}
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        priority={priority}
+                    />
                 </div>
-            </section>
+                <div className={`section__content ${bgClass}`} id={`${id}-content`}>
+                    <h2 className={`section__title${lightTitle ? " section__title--light" : ""}`}>
+                        {title}
+                    </h2>
+                    <p className={`section__desc${lightDesc ? " section__desc--light" : ""}`}>
+                        {description}
+                    </p>
+                    <a href="#" className={ctaClass} id={`${id}-cta`}>
+                        {ctaText}
+                    </a>
+                </div>
+            </div>
         </ScrollReveal>
     );
 }
